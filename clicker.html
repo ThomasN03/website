@@ -31,6 +31,7 @@
                 this.canvas.width = 480;
                 this.canvas.height = 270;
                 this.score = 0;
+                this.scoreBonus = 0;
                 this.context = this.canvas.getContext("2d");
                 document.body.insertBefore(this.canvas, document.body.childNodes[0]);
                 this.interval = setInterval(updateGameArea, 20);
@@ -65,10 +66,30 @@
             myGameArea.clear();
             myScore.update();
         }
-        
+
+        function scoremore() {
+            if (myGameArea.score >= 10) {
+                    myGameArea.score += 2;
+                    myScore.text = "SCORE: " + myGameArea.score;
+                    myGameArea.clear();
+                    myScore.update();
+            }
+        }
+
+        function scoremoremore() {
+            if (myGameArea.score >= 20) {
+                    myGameArea.score += 4;
+                    myScore.text = "SCORE: " + myGameArea.score;
+                    myGameArea.clear();
+                    myScore.update();
+            }
+        }
+
     </script>
     <br>
     <button onclick="scoreup()">click</button>
+    <button onclick="scoremore()">bonus</button>
+    <button onclick="scoremoremore()">bonus+</button>
 
 </body>
 
